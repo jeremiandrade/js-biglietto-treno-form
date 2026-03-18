@@ -20,9 +20,35 @@
 // Nota:
 // Se non vi sentite particolarmente creativi, questa potrebbe essere un’implementazione da seguire per il secondo milestone. Potete scegliere di implementare una soluzione completamente diversa oppure simile, ma in ogni caso cercate di farla vostra.
 
-const userName = document.getElementById('userNameEl').value;
-console.log(userName);
+const userNameElement = document.getElementById('userNameEl')
+const userKmElement = document.getElementById('kmEl');
+const userCentElement = document.getElementById('ageEl');
+const userBtnElement = document.querySelector('.btnEl');
+console.log(userNameElement,userKmElement,userCentElement,userBtnElement );
 
-const userKm = document.getElementById('kmEl');
+//uso addEvenListener cosi che al click del bottone esegue logica
+userBtnElement.addEventListener('click', function(e){
+e.preventDefault()
+const userName = userNameElement.value;
+const userKm = Number(userKmElement.value);
+const userAge = Number(userCentElement.value);
+
+console.log(userName, userKm, userAge);
+
+let priceTotal = userKm * 0.21
+if (userAge < 18 ) {
+    console.log('Applica il 20% di sconto');
+    priceTotal= priceTotal * 0.8   
+}else{ (userAge>65)
+    console.log('applica il 40% di sconto');
+    priceTotal = userKm * 0.6
+}
+console.log(priceTotal.toFixed(2));
+})
+
+//prendo i valori delle variabili tramite .value dentro addevenlistener
+//mi calcolo il prezzo del biglietto tramite if
+// per finire lo loggo in console
+
 
 
